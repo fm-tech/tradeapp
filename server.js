@@ -18,7 +18,8 @@ var mongoose = require('mongoose');
 var port = process.env.PORT || 9090;        // set our port
 
 // Database setup
-mongoose.connect('mongodb://test:Welcome123@10.1.1.45:27017/testdb',
+const connectionString = "mongodb+srv://test:<PASS>@cluster0-kkzsx.mongodb.net/test?retryWrites=true&w=majority"
+mongoose.connect(connectionString,
     { useNewUrlParser: true, useUnifiedTopology: true }); //No password used to keep this example short
 //  Aloows to recieve promise data
 //  mongoose.Promise = global.Promise;
@@ -43,7 +44,9 @@ var tickerSchema = new Schema({
     open: Number,
     high: Number,
     low: Number,
-    close: Number
+    close: Number,
+    bid: Number,
+    ask: Number
 });
 
 var Ticker = mongoose.model('Ticker', tickerSchema);
