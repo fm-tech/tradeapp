@@ -18,7 +18,7 @@ var mongoose = require('mongoose');
 var port = process.env.PORT || 9090;        // set our port
 
 // Database setup
-const connectionString = "mongodb+srv://test:<PASS>@cluster0-kkzsx.mongodb.net/test?retryWrites=true&w=majority"
+const connectionString = "mongodb+srv://test:Welcome123@cluster0-kkzsx.mongodb.net/test?retryWrites=true&w=majority"
 mongoose.connect(connectionString,
     { useNewUrlParser: true, useUnifiedTopology: true }); //No password used to keep this example short
 //  Aloows to recieve promise data
@@ -58,8 +58,8 @@ var Ticker = mongoose.model('Ticker', tickerSchema);
 // Constants and other important constant data 
 var base_url = "https://api.gemini.com/v2/"
 
-function getBtc() {
-    return axios.get(base_url + "ticker/btcusd")
+function getPrice(symbol) {
+    return axios.get(base_url + "ticker/" + symbol)
 }
 
 
@@ -70,26 +70,11 @@ router.get('/', function (req, res) {
     res.json({ message: 'hooray! welcome to our api!' });
 });
 
-// V!
-// router.get('/btc', function (req, res) {
-//     axios.get(base_url + "ticker/btcusd")
-//         .then(response => res.json(response.data)
-//         )
-//         .then(response => Ticker.create(response.data, function(err, ticker){
-//             if(err) {
-//                 console.log(err)
-//             } else {
-//                 console.log("data was recorded to mongo" + response.data)
-//             }
 
-//         }))
-//         .catch(error => {
-//             res.json(error)
-//         })
-// })
-router.get('/btc', function (req, res) {
-    getBtc().then(function (response) {
-            Ticker.create(response.data)
+router.get('/price/:symbol', function (req, res) {
+    getPrice(req.params.symbol).then(function (response) {
+            // Ticker.create(response.data)
+            res.json(response.data)
         })
     })
     // more routes for our API will happen here
