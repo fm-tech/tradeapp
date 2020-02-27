@@ -42,11 +42,6 @@ app.use('/api/query', queryRoutes)
 
 
 
-// Constants and other important constant data 
-var gemini_url = "https://api.gemini.com/v2/"
-
-
-
   // START THE SERVER
     // =============================================================================
     app.listen(port);

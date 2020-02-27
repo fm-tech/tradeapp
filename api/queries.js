@@ -1,5 +1,6 @@
 var express = require('express');  
 var router = express.Router();   
+const { getPrice } = require('../jobs/queries')
 
 router.get('/price/:symbol', function (req, res) {
     getPrice(req.params.symbol).then(function (response) {
@@ -7,12 +8,6 @@ router.get('/price/:symbol', function (req, res) {
             res.json(response.data)
         })
     })
-    // more routes for our API will happen here
-
-    // REGISTER OUR ROUTES -------------------------------
-    // all of our routes will be prefixed with /api
-    
-  
-
+ 
 
 module.exports = router;
