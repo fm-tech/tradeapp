@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 
-var tickerSchema = new Schema({
+var tickerSchema = new mongoose.Schema({
     symbol: String,
     open: Number,
     high: Number,

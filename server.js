@@ -14,6 +14,7 @@ var mongoose = require('mongoose');
 
 var indexRoutes = require('./api/index')
 var queryRoutes = require('./api/queries')
+var chronRoutes = require('./api/chron')
 
 var port = process.env.PORT || 9090;        // set our port
 
@@ -38,7 +39,7 @@ var router = express.Router();              // get an instance of the express Ro
 
 app.use('/api', indexRoutes)
 app.use('/api/query', queryRoutes)
-
+app.use('/api/chron', chronRoutes)
 
 
 

@@ -1,10 +1,10 @@
 var express = require('express');  
 var router = express.Router();   
+var Chron = require('../jobs/chron')
 
-import {storePrice} from '../jobs/cron'
 
-router.get('/chron/store/price/:symbol', function (req, res) {
-    storePrice(req.params.symbol)    
+router.get('/store/price/:symbol', function (req, res) {
+    Chron.storePrice(req.params.symbol)    
     res.json({ message: 'Chron Job Trigger has been submited' });
 });
 

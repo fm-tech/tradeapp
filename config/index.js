@@ -10,4 +10,4 @@ const gemini = {
         }
     }
 
-module.export = gemini
+module.exports.gemini = gemini
