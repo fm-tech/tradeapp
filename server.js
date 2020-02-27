@@ -3,8 +3,7 @@
 // =============================================================================
 // call the packages we need
 var express = require('express');        // call express
-var app = express();                 // define our app using express
-var axios = require('axios');
+var app = express();                 // define our app using expressmk
 var mongoose = require('mongoose');
 // var bodyParser = require('body-parser'); Not needed at the moment
  
@@ -40,47 +39,13 @@ var router = express.Router();              // get an instance of the express Ro
 app.use('/api', indexRoutes)
 app.use('/api/query', queryRoutes)
 
-// Mongoose Test Schema 
 
-var Schema = mongoose.Schema;
-var tickerSchema = new Schema({
-    symbol: String,
-    open: Number,
-    high: Number,
-    low: Number,
-    close: Number,
-    bid: Number,
-    ask: Number,
-    date: {type: Date, default: Date.now}
-});
-var Ticker = mongoose.model('Ticker', tickerSchema);
 
-var Schema = mongoose.Schema;
-var buySchema = new Schema({
-    symbol: String,
-    price: Number,
-    amount: Number,
-    fee: Number,
-    date: {type: Date, default: Date.now}
-});
-var Buy = mongoose.model('Buy', buySchema);
-
-var Schema = mongoose.Schema;
-var sellSchema = new Schema({
-    symbol: String,
-    price: Number,
-    amount: Number,
-    fee: Number,
-    date: {type: Date, default: Date.now}
-});
-var Sell = mongoose.model('Sell', sellSchema);
 
 // Constants and other important constant data 
 var gemini_url = "https://api.gemini.com/v2/"
 
-function getPrice(symbol) {
-    return axios.get(gemini_url + "ticker/" + symbol)
-}
+
 
   // START THE SERVER
     // =============================================================================
