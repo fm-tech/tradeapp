@@ -1,10 +1,11 @@
 var express = require('express');  
 var router = express.Router();   
-var Chron = require('../jobs/chron')
+var Query = require('../jobs/queries')
 
 
 router.get('/store/price/:symbol', function (req, res) {
-    Chron.storePrice(req.params.symbol)    
+    Query.getPrice(req.params.symbol, true)
+    console.log("First")
     res.json({ message: 'Chron Job Trigger has been submited' });
 });
 

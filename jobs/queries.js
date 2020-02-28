@@ -1,15 +1,23 @@
-var axios = require('axios');
 const Config = require('../config')
+var axios = require('axios');
+var Chron = require('./chron')
 
 
-async function getPrice(symbol) {
+// V1
+function getPrice(symbol, store) {
     axios.get(Config.gemini.api.v2 + "ticker/" + symbol)
     .then(function(result) {
-        console.log(result.data)
-        return result.data
+        if(store == true) {
+            console.log("second")
+            Chron.storePrice(result.data)
+        } else {
+            console.log("not Storing")
+            return result.data
+        }
     })
-   
 }
+
+
 
 async function getCandles(symbol) {
     return axios.get(Config.gemini.api.v2 + "<urlvar>" + symbol)

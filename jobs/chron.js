@@ -1,17 +1,22 @@
-var Queries = require('./queries')
+
 var Ticker = require('../models/currency')
 
-function storePrice(symbol){ 
-    var price = Queries.getPrice(symbol) 
-    console.log(price)
-    Ticker.create(price, function(err, price){
+
+
+function storePrice(data){ 
+    console.log("third")
+    Ticker.create(data, function(err, dataStored){
         if(err) {
             console.log(err)
         } else {
-            console.log(price)
+            console.log(dataStored)
         }
     })
+  
 }
+
+
+
 function storeFeed(){
     
 }
