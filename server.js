@@ -12,7 +12,7 @@ var mongoose = require('mongoose');
 // app.use(bodyParser.urlencoded({ extended: true }));
 // app.use(bodyParser.json());
 
-var indexRoutes = require('./api/index')
+var indexRoutes = require('./api')
 var queryRoutes = require('./api/queries')
 var chronRoutes = require('./api/chron')
 
@@ -35,7 +35,7 @@ db.on('open', function (callback) {
 
 // ROUTES FOR OUR API
 // =============================================================================
-var router = express.Router();              // get an instance of the express Router
+
 
 app.use('/api', indexRoutes)
 app.use('/api/query', queryRoutes)

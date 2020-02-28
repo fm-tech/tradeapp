@@ -19,7 +19,7 @@ function getPrice(symbol, store) {
 
 
 
-async function getCandles(symbol) {
+function getCandles(symbol) {
     return axios.get(Config.gemini.api.v2 + "<urlvar>" + symbol)
 }
 

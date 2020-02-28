@@ -21,11 +21,13 @@ function storeFeed(){
     
 }
 
-function runChron(toggle) {
+function runChron(timer, isToggled) {
     if(  isToggled == true ) {
-        setInterval(toggle,1000);
+        setInterval(timer,1000);
     } else {
-
+    if( isToggled == false) {
+        clearInterval(timerVariable);
+    }
     }
 }
 
