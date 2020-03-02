@@ -25,4 +25,6 @@ runChron = (callback) => {
     setInterval(callback, 5000)
 }
 
-module.exports.storePrice = storePrice;
+module.exports.storePrice = storePrice
+module.exports.runChron = runChron
+module.exports.runTest = runTest

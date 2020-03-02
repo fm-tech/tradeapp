@@ -8,7 +8,7 @@ router.route('/store/price/:symbol')
     .get(chronCont.store)
     .post()
 router.route('/set')
-    .get()
+    .get(chronCont.record)
 
 
 module.exports = router;
