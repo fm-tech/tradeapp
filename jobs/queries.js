@@ -3,18 +3,19 @@ var axios = require('axios');
 var Chron = require('./chron')
 
 
-// V1
-function getPrice(symbol, store) {
-    axios.get(Config.gemini.api.v2 + "ticker/" + symbol)
-    .then(function(result) {
+// V2
+async function getPrice(symbol, store) {
+    try {
+        var response = await axios.get(Config.gemini.api.v2 + "ticker/" + symbol)
         if(store == true) {
-            console.log("second")
-            Chron.storePrice(result.data)
+            Chron.storePrice(response.data)
         } else {
-            console.log("not Storing")
-            return result.data
+            return response
         }
-    })
+    } catch (error) {
+        console.log(error)
+    }
+    
 }
 
 

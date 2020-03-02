@@ -1,8 +1,6 @@
 
 var Ticker = require('../models/currency')
 
-
-
 function storePrice(data){ 
     console.log("third")
     Ticker.create(data, function(err, dataStored){
@@ -15,21 +13,16 @@ function storePrice(data){
   
 }
 
-
-
 function storeFeed(){
     
 }
 
-function runChron(timer, isToggled) {
-    if(  isToggled == true ) {
-        setInterval(timer,1000);
-    } else {
-    if( isToggled == false) {
-        clearInterval(timerVariable);
-    }
-    }
+runTest = () => {
+    console.log('Hello world')
 }
 
+runChron = (callback) => {
+    setInterval(callback, 5000)
+}
 
 module.exports.storePrice = storePrice;
