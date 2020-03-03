@@ -29,11 +29,14 @@ const intControl = async (symbol) => {
     }, 5000)
 }
 
+const intClear = () => clearInterval()
+
+
 const dataToGrab = async (symbol) =>  {
     (Query.getPrice(symbol))
     .then(response => storePrice(response.data))
 }
 
 module.exports.storePrice = storePrice
-module.exports.runTest = runTest
 module.exports.intControl = intControl
+module.exports.intClear = intClear

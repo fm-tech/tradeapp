@@ -9,6 +9,10 @@ router.route('/store/price/:symbol')
     .post()
 router.route('/store/:symbol')
     .get(chronCont.record)
+// This is a work in progress
+// router.route('/clear')
+//     .get(chronCont.clear)
+
 
 
 module.exports = router;

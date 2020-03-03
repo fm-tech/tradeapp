@@ -17,6 +17,8 @@ var sellSchema = new Schema({
     fee: Number,
     date: {type: Date, default: Date.now}
 });
-module.exports = mongoose.model('Sell', sellSchema),
+
+module.exports =
+mongoose.model('Sell', sellSchema),
 mongoose.model('Buy', buySchema);
 

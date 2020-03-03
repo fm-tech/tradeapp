@@ -10,5 +10,9 @@ module.exports = {
         (Chron.intControl((req.params.symbol)))
         .then(res.send('Wait for the magic'))
      
+    },
+    clear: (req, res, next) => {
+        Chron.intClear()
+        res.json({message: 'Cleared all price data recording'})
     }    
 }
