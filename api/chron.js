@@ -7,7 +7,7 @@ const chronCont = require('../controllers/chron')
 router.route('/store/price/:symbol')
     .get(chronCont.store)
     .post()
-router.route('/set')
+router.route('/store/:symbol')
     .get(chronCont.record)
 
 

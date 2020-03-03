@@ -4,14 +4,10 @@ var Chron = require('./chron')
 
 
 // V2
-async function getPrice(symbol, store) {
+async function getPrice(symbol) {
     try {
         var response = await axios.get(Config.gemini.api.v2 + "ticker/" + symbol)
-        if(store == true) {
-            Chron.storePrice(response.data)
-        } else {
             return response
-        }
     } catch (error) {
         console.log(error)
     }
